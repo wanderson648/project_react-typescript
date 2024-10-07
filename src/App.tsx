@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { Button } from "./Button";
+import { Input } from "./Input";
+
 
 function App() {
-  const [total, setTotal] = useState(0);
-
-  function incrementar() {
-    setTotal((total) => total + 1);
-  }
+  const [data, setData] = useState('')
 
   return (
     <div>
-      <p>Total: {total}</p>
-
-      <Button id="botao-principal" className="btn" onClick={incrementar} tamanho="1.25rem">
-        Incrementar
-      </Button>
+      <p>Inicio da viagem: {data}</p>
+      <Input id="email" label="email" />
+      <Input id="nome" label="Nome" />
+      <Input 
+        id="inicio" 
+        label="Início da Viagem" 
+        type="date"
+        value={data}
+        onChange={(event) => setData(event.currentTarget.value)}
+      />
+      <Input id="horario" label="Horário" type="time" />
     </div>
   );
 }

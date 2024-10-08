@@ -1,11 +1,11 @@
-type ButtonProps = React.ComponentProps<"button"> & {
-  tamanho?: string;
+type ButtonProps =  {
+  incrementar: React.Dispatch<React.SetStateAction<number>>
 };
 
-export function Button({ tamanho, children, ...props }: ButtonProps) {
+export function Button({ incrementar }: ButtonProps) {
   return (
-    <button style={{ fontSize: tamanho }} {...props}>
-      {children}
+    <button onClick={() => incrementar((n) => n+1)}>
+      Incrementar
     </button>
   );
 }
